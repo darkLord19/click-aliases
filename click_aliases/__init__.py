@@ -62,7 +62,7 @@ class ClickAliasedGroup(click.Group):
             if sub_command in self._commands:
                 aliases = ','.join(sorted(self._commands[sub_command]))
                 sub_command = '{0} ({1})'.format(sub_command, aliases)
-            cmd_help = cmd.short_help or ''
+            cmd_help = cmd.get_short_help_str() or ''
             rows.append((sub_command, cmd_help))
         if rows:
             with formatter.section('Commands'):
